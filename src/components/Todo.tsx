@@ -1,8 +1,8 @@
 import React from 'react'
-import { Todo as TodoType } from '../types/types'
+import { TodoId, Todo as TodoType } from '../types/types'
 
 interface Props extends TodoType{
-    onClickRemove(id:string): void
+    onClickRemove({id}: TodoId): void
 }
 
 export const Todo:React.FC<Props> = ({ id, completed, text, onClickRemove } : Props) => {
@@ -10,7 +10,7 @@ export const Todo:React.FC<Props> = ({ id, completed, text, onClickRemove } : Pr
     <div className="view">
         <input type="checkbox" id={id} checked={completed} className='toggle' />
         <label htmlFor={id}>{text}</label>
-        <button className="destroy" onClick={() => onClickRemove(id)} />
+        <button className="destroy" onClick={() => onClickRemove({ id })} />
     </div>
   )
 }
