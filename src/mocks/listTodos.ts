@@ -1,12 +1,12 @@
 export const listTodos = [
       {
         text: 'React Hooks',
-        completed: false,
+        completed: true,
         id: 'b967afe24b23'
       },
       {
         text: 'Viva la comunidad de Midu ORALE',
-        completed: true,
+        completed: false,
         id: '43286487fhsdjasd'
       },
       {
@@ -16,12 +16,12 @@ export const listTodos = [
       },
       {
         text: 'Context',
-        completed: true,
+        completed: false,
         id: '43242341aaaaa'
       },
       {
         text: 'BUA BUA BUA BUA',
-        completed: true,
+        completed: false,
         id: 'b967afe24a13'
       }
     ]
