@@ -1,5 +1,6 @@
 import { useContext } from "react"
-import { TodoContext, TodoContextType } from "../context/TodoContext"
+import { TodoContext } from "../context/TodoContext"
+import { TodoContextType } from "../types/types"
 
 
 export function useTodos():TodoContextType {
