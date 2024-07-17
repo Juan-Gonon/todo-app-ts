@@ -1,3 +1,5 @@
+import { TODO_FILTERS } from "../constants"
+
 export interface Todo {
     id: string,
     completed: boolean,
@@ -16,3 +18,5 @@ export interface TodoContextType{
     handleRemoveTodo: ({ id} : TodoId) => void;
     handleCompletedTodo: ({ id, completed} : Pick<Todo, 'id' | 'completed'>) => void
 }
+
+export type FILTER_VALUE = typeof TODO_FILTERS[keyof typeof TODO_FILTERS]
