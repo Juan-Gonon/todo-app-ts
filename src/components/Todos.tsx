@@ -1,14 +1,10 @@
 import React from "react";
-import type { listOfTodos, TodoId } from "../types/types";
 import { Todo } from "./Todo";
-import { Todo as TodoType } from "../types/types";
-interface Props{
-    todos: listOfTodos,
-    clickRemoveTodo({ id }: TodoId) : void,
-    onToggleCompleted({id, completed}: Pick<TodoType, 'id' | 'completed'>): void
-}
+import { useTodos } from "../hook/useTodos";
 
-export const Todos:React.FC<Props> = ({ todos, clickRemoveTodo, onToggleCompleted } : Props) => {
+
+export const Todos = ():React.JSX.Element => {
+    const { todos } = useTodos()
   return (
     <>
     <ul className="todo-list">
@@ -16,8 +12,6 @@ export const Todos:React.FC<Props> = ({ todos, clickRemoveTodo, onToggleComplete
             todos.map((todo) => (
                 <li key={todo.id} className={`${todo.completed ? 'completed': ''}`} >
                     <Todo {...todo}  
-                        onClickRemove={clickRemoveTodo} 
-                        onToggleCompleted={onToggleCompleted} 
                     />
                 </li>
             ))
