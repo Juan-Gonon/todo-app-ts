@@ -1,7 +1,6 @@
 import React, { ReactNode, useState } from 'react'
 import { TodoContext } from './TodoContext'
-import { listTodos } from '../mocks/listTodos'
-import { Todo as TodoType, TodoId, FILTER_VALUE, TodoText, Todo } from '../types/types'
+import { Todo as TodoType, TodoId, FILTER_VALUE, TodoText, Todo, listOfTodos } from '../types/types'
 import { TODO_FILTERS } from '../constants'
 
 interface Props{
@@ -12,7 +11,7 @@ interface Props{
 export const TodoProvider:React.FC<Props> = ({ children }) => {
 
   const [filterSelected, setFilterSelected] = useState<FILTER_VALUE>(TODO_FILTERS.ALL)
-  const [todos, setTodos] = useState(listTodos)
+  const [todos, setTodos] = useState<listOfTodos>([])
 
   
     const handleRemoveTodo = ({ id }: TodoId):void => {
@@ -40,8 +39,8 @@ export const TodoProvider:React.FC<Props> = ({ children }) => {
     }
 
 
-    const activeCount = todos.filter((todo) => !todo.completed ).length
-    const completedCount = todos.filter((todo) => todo.completed ).length
+    const activeCount = todos?.filter((todo) => !todo.completed ).length | 0
+    const completedCount = todos?.filter((todo) => todo.completed ).length | 0
 
     const handleFilterChange = (key: FILTER_VALUE):void => {
       setFilterSelected(key)
