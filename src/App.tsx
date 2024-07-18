@@ -1,6 +1,7 @@
 import React from "react"
 import { Todos } from "./components/Todos"
 import { Footer } from "./components/Footer"
+import { Header } from "./components/Header"
 
 
 function App():React.JSX.Element{
@@ -9,7 +10,7 @@ function App():React.JSX.Element{
 
   return (
     <>
-    <h1>Todo App</h1>
+    <Header />
     <Todos />
     <Footer />
     </>

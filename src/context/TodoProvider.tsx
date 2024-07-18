@@ -61,6 +61,7 @@ export const TodoProvider:React.FC<Props> = ({ children }) => {
     }
 
     const handleAddTodo = ({ text }: TodoText) => {
+      
 
       const newTodo:Todo = {
         id: crypto.randomUUID(),
@@ -68,7 +69,7 @@ export const TodoProvider:React.FC<Props> = ({ children }) => {
         text
       }
 
-      setTodos((prevState) => ({...prevState, newTodo}))
+      setTodos((prevState) => [...prevState, newTodo])
     }
   
 
