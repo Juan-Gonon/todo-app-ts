@@ -12,7 +12,8 @@ const defaultState: TodoContextType = {
     activeCount: 0,
     completedCount: 0,
     handleFilterChange:() => {},
-    handleRemoveAllCompleted: () => {}
+    handleRemoveAllCompleted: () => {},
+    handleAddTodo: () => {}
 }
 
 

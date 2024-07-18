@@ -23,4 +23,5 @@ export interface TodoContextType{
     completedCount: number;
     handleFilterChange: (key: FILTER_VALUE) => void;
     handleRemoveAllCompleted: () => void;
+    handleAddTodo: ({ text} : TodoText) => void
 }

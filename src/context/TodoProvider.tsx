@@ -1,7 +1,7 @@
 import React, { ReactNode, useState } from 'react'
 import { TodoContext } from './TodoContext'
 import { listTodos } from '../mocks/listTodos'
-import { Todo as TodoType, TodoId, FILTER_VALUE } from '../types/types'
+import { Todo as TodoType, TodoId, FILTER_VALUE, TodoText, Todo } from '../types/types'
 import { TODO_FILTERS } from '../constants'
 
 interface Props{
@@ -59,6 +59,17 @@ export const TodoProvider:React.FC<Props> = ({ children }) => {
 
       setTodos(newTodos)
     }
+
+    const handleAddTodo = ({ text }: TodoText) => {
+
+      const newTodo:Todo = {
+        id: crypto.randomUUID(),
+        completed: false,
+        text
+      }
+
+      setTodos((prevState) => ({...prevState, newTodo}))
+    }
   
 
     
@@ -71,7 +82,8 @@ export const TodoProvider:React.FC<Props> = ({ children }) => {
         activeCount,
         completedCount,
         handleFilterChange,
-        handleRemoveAllCompleted
+        handleRemoveAllCompleted,
+        handleAddTodo
     }}>
         {
             children
