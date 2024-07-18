@@ -9,11 +9,11 @@ function App():React.JSX.Element{
 
 
   return (
-    <>
+    <main className="app">
     <Header />
     <Todos />
     <Footer />
-    </>
+    </main>
   )
 }
 
