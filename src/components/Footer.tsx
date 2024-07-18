@@ -6,18 +6,22 @@ import { FooterSelected } from './FooterSelected'
 
 export const Footer:React.FC = () => {
 
-  const { activeCount, filterSelected, handleFilterChange, completedCount } = useTodos()
+  const { activeCount, filterSelected, handleFilterChange, completedCount, handleRemoveAllCompleted } = useTodos()
   
 
   return (
     <footer className="footer">
-        <span className="todo-content">
+        <span className="todo-count">
             <strong>{activeCount}</strong> tareas pendientes
-            <br />
         </span>
         <FooterSelected filterSelected={filterSelected} handleFilterChange={handleFilterChange} />
         {
-          completedCount > 0 && <button className='clear-completed'>Borrar completados </button>
+          completedCount > 0 && (
+          <button 
+            className='clear-completed'
+            onClick={handleRemoveAllCompleted}
+          >Borrar completados </button>
+        )
         }
     </footer>
   )

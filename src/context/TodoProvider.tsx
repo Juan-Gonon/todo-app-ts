@@ -53,6 +53,12 @@ export const TodoProvider:React.FC<Props> = ({ children }) => {
 
       return todo
     })
+
+    const handleRemoveAllCompleted = () => {
+      const newTodos = todos.filter((todo) => !todo.completed)
+
+      setTodos(newTodos)
+    }
   
 
     
@@ -64,7 +70,8 @@ export const TodoProvider:React.FC<Props> = ({ children }) => {
         filterSelected,
         activeCount,
         completedCount,
-        handleFilterChange
+        handleFilterChange,
+        handleRemoveAllCompleted
     }}>
         {
             children
